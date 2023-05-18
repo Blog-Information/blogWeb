@@ -19,10 +19,19 @@ export default defineComponent({
 })
 </script>
 <template>
-  <!--    <top></top>-->
+  <top></top>
   <blog></blog>
   <message-board></message-board>
   <bottom></bottom>
 </template>
 <style>
+:root{
+  background-color: #2E2D4C;
+  background-image: url("../public/particle.svg");
+  background-attachment: fixed;
+}
+*{
+  margin: 0;
+  padding: 0;
+}
 </style>
