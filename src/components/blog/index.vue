@@ -6,14 +6,69 @@
     <img src="../../../public/ikun.png" alt="loading...">
     <h4>Hi there 👋,I'm jian</h4>
     <h3>I am from Shaanxi, China</h3>
+    <button @click="this.getUserIp">getUserIp</button>
   </div>
-<!--  <img-->
-<!--      src="https://camo.githubusercontent.com/762c9c86565369b3cbcac776397f47e12674ab2b6ce8f6ebb768c4cbf666832e/68747470733a2f2f77616b6174696d652e636f6d2f62616467652f757365722f37383535306463612d346137342d346438332d613362642d3238623936346264346132632e737667"-->
-<!--      alt=""-->
-<!--  >-->
 </template>
 <script>
+import axios from 'axios'
+export default {
+  data() {
+    return {
+      ip:'',
+      // ip
+      address:'',
+      // 地区
+      browser:'',
+      // 浏览器
+      system:'',
+      // 系统
+      lsp:'',
+      // 运营商信息
+      userIp: 'https://api.vvhan.com/api/getIpInfo',
+      //   获取用户地址和ip
+      visitorUrl:'http://localhost:8080/visitorMessage'
+    }
+  },
+  methods: {
+    getUserIp(){
+      axios.get(this.userIp,{
+      }).then(response=>{
+        this.ip=response.data.ip
+        this.address=response.data.info.country+
+            response.data.info.prov+
+            response.data.info.city
+        this.lsp=response.data.info.lsp
+        this.getUserBrowser()
 
+      }).catch(error=>{
+        console.log(error)
+      })
+    },
+    getUserBrowser(){
+      this.system=window.navigator.oscpu
+      this.browser=window.navigator.userAgent.toLowerCase()
+      this.visitorMessage()
+    },
+    visitorMessage(){
+      this.visitorUrl+=
+          '?ipAddress='+this.ip+
+          '&address='+this.address+
+          '&lsp='+this.lsp+
+          '&browser='+this.browser+
+          '&system='+this.system
+      axios.get(this.visitorUrl,{
+      }).then(response=>{
+        console.log(response)
+      }).catch(error=>{
+        console.log(error)
+        console.log(this.visitorUrl)
+      })
+    }
+  },
+  mounted() {
+    this.getUserIp()
+  }
+}
 </script>
 <style>
 #headImage {
