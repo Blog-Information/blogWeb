@@ -6,7 +6,6 @@
     <img src="../../../public/ikun.png" alt="loading...">
     <h4>Hi there 👋,I'm jian</h4>
     <h3>I am from Shaanxi, China</h3>
-    <button @click="this.getUserIp">getUserIp</button>
   </div>
 </template>
 <script>
