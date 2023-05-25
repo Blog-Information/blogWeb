@@ -44,7 +44,7 @@
 
 #top {
   background-color: #409EFF;
-  height: 5vh;
+  height: 5%;
   display: flex;
   align-items: center;
   justify-content: center;
