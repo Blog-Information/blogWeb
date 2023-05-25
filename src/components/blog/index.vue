@@ -38,14 +38,13 @@ export default {
             response.data.info.city
         this.lsp=response.data.info.lsp
         this.getUserBrowser()
-
       }).catch(error=>{
         console.log(error)
       })
     },
     getUserBrowser(){
-      this.system=window.navigator.oscpu
-      this.browser=window.navigator.userAgent.toLowerCase()
+      this.system=window.navigator.platform
+      this.browser=window.navigator.userAgent
       this.visitorMessage()
     },
     visitorMessage(){
