@@ -44,7 +44,57 @@ export default {
     },
     getUserBrowser(){
       this.system=window.navigator.platform
-      this.browser=window.navigator.userAgent
+      let ua=navigator.userAgent;
+      let browserName;
+      if (ua.indexOf("Chrome") > -1) {
+        browserName = "Google Chrome";
+      }
+      // 检测Safari浏览器
+      else if (ua.indexOf("Safari") > -1 && ua.indexOf("Chrome") === -1) {
+        browserName = "Safari";
+      }
+      // 检测Firefox浏览器
+      else if (ua.indexOf("Firefox") > -1) {
+        browserName = "Firefox";
+      }
+      // 检测IE浏览器
+      else if (ua.indexOf("MSIE") > -1 || ua.indexOf("Trident/") > -1) {
+        browserName = "Internet Explorer";
+      }
+      // 检测Edge浏览器
+      else if (ua.indexOf("Edge") > -1) {
+        browserName = "Microsoft Edge";
+      }
+      else {
+        browserName = "未知";
+      }
+      this.browser+=browserName+"-"
+      // 获取浏览器版本
+      let version;
+      if (ua.indexOf("Chrome") > -1) {
+        version = ua.match(/Chrome\/(\d+)/)[1];
+      }
+      // Firefox浏览器
+      else if (ua.indexOf("Firefox") > -1) {
+        version = ua.match(/Firefox\/(\d+)/)[1];
+      }
+      // Safari浏览器
+      else if (ua.indexOf("Safari") > -1) {
+        version = ua.match(/Version\/(\d+)/)[1];
+      }
+      // IE浏览器
+      else if (ua.indexOf("MSIE") > -1 || ua.indexOf("Trident/") > -1) {
+        version = ua.match(/(?:MSIE |rv:)(\d+)/)[1];
+      }
+      // Edge浏览器
+      else if (ua.indexOf("Edge") > -1) {
+        version = ua.match(/Edge\/(\d+)/)[1];
+      }
+      else {
+        version = "";
+      }
+      this.browser+=version
+      console.log(this.browser)
       this.visitorMessage()
     },
     visitorMessage(){
@@ -75,6 +125,6 @@ export default {
 
 #headImage img {
   border-radius: 50%;
-  width: 30vh;
+  width: 30%;
 }
 </style>
