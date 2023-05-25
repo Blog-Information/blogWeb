@@ -63,7 +63,7 @@ const sendSuccessful = () => {
   })
 }
 const sendFail = () => {
-// 留言发送失败的提示
+  /* 留言发送失败的提示 */
   ElMessage.error('发送失败')
 }
 export default {
@@ -164,8 +164,6 @@ button {
 
 #contentP {
   color: whitesmoke;
-//font-size: 5vh; margin-top: 30vh;
-  font-size: 3vh; /* 文字大小 */
   line-height: 1.5; /* 行高 */
   padding: 0; /* 内边距 */
   text-align: center; /* 文字对齐方式 */
@@ -179,7 +177,8 @@ button {
   border: 0.3vh solid lightblue;;
   border-radius: 10vh;
 }
-span{
+
+span {
   color: #FFFFFF
 }
 </style>
