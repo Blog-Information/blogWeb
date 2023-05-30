@@ -25,7 +25,7 @@ export default {
       // 运营商信息
       userIp: 'https://api.vvhan.com/api/getIpInfo',
       //   获取用户地址和ip
-      visitorUrl:'http://localhost:8080/visitorMessage'
+      visitorUrl:'http://localhost:8080/appendVisitorMessage'
     }
   },
   methods: {
@@ -47,7 +47,7 @@ export default {
       let ua=navigator.userAgent;
       let browserName;
       if (ua.indexOf("Chrome") > -1) {
-        browserName = "Google Chrome";
+        browserName = "Google-Chrome";
       }
       // 检测Safari浏览器
       else if (ua.indexOf("Safari") > -1 && ua.indexOf("Chrome") === -1) {
@@ -59,11 +59,11 @@ export default {
       }
       // 检测IE浏览器
       else if (ua.indexOf("MSIE") > -1 || ua.indexOf("Trident/") > -1) {
-        browserName = "Internet Explorer";
+        browserName = "Internet-Explorer";
       }
       // 检测Edge浏览器
       else if (ua.indexOf("Edge") > -1) {
-        browserName = "Microsoft Edge";
+        browserName = "Microsoft-Edge";
       }
       else {
         browserName = "未知";
