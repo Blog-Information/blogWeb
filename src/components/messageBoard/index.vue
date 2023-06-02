@@ -82,21 +82,15 @@ export default {
         },
         // 发送留言
         sendUserMessage() {
-            console.log("发送")
             // 优雅,永不过时!!!
             this.addUserMessage +=
                 '?content=' + this.renderedMarkdown;
+            this.addUserMessage=this.addUserMessage.substring(0,this.addUserMessage.length-2)
             console.log(this.addUserMessage)
             axios.get(this.addUserMessage, {
-
             }).then(response => {
                 console.log(response)
                 sendSuccessful()
-                // 添加后刷新网页
-                const reload = setTimeout(() => {
-                    location.reload()
-                }, 3000)
-                clearTimeout(reload)
             }).catch(error => {
                 sendFail()
                 console.log(error)

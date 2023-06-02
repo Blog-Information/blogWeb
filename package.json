@@ -8,7 +8,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "^1.4.0",
+    "axios": "^0.21.1",
+    "babel-polyfill": "^6.26.0",
     "element-plus": "^2.3.4",
     "element-theme-chalk": "^2.15.13",
     "markdown-it": "^13.0.1",
