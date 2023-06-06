@@ -41,7 +41,7 @@ import {ElMessage} from "element-plus";
 const sendSuccessful = () => {
     // 留言发送成功的提示
     ElMessage({
-        message: '发送成功,厉害捏!',
+        message: '发送成功,厉害捏! 三秒后自动刷新页面',
         type: 'success',
     })
 }
@@ -91,6 +91,9 @@ export default {
             }).then(response => {
                 console.log(response)
                 sendSuccessful()
+                setTimeout(function (){
+                    window.location.reload()
+                },3000)
             }).catch(error => {
                 sendFail()
                 console.log(error)
