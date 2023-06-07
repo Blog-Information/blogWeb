@@ -26,7 +26,7 @@ export default defineComponent({
 </template>
 <style>
 :root{
-  background-color: #2E2D4C;
+  background-color: #FFFFFF;
   background-image: url("../public/particle.svg");
   background-attachment: fixed;
 }
